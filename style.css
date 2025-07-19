@@ -1,20 +1,41 @@
+
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
-  padding: 0;
-  background: #0d0d0d;
+  font-family: 'Orbitron', sans-serif;
+  background: linear-gradient(to bottom, #000011, #0a0a1a);
   color: #00ffcc;
   text-align: center;
 }
-header {
-  padding: 2em;
-  background: #1a1a1a;
+.hero {
+  background: url('banner-placeholder.png') no-repeat center center;
+  background-size: cover;
+  padding: 5em 2em;
 }
-section {
-  padding: 2em;
+h1 {
+  font-size: 3em;
+  margin-bottom: 0.2em;
+}
+.countdown, .tokenomics, .nft-gallery, .claim-ui, footer {
+  padding: 2em 1em;
+}
+.tokenomics ul {
+  list-style: none;
+  padding: 0;
+}
+.tokenomics li {
+  margin: 0.5em 0;
+}
+.nfts {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+.nft {
+  border: 1px solid #00ffcc;
+  padding: 1em;
+  background: rgba(0, 255, 204, 0.05);
 }
 footer {
-  padding: 1em;
-  background: #111;
-  font-size: 0.8em;
+  background: #000;
+  font-size: 0.9em;
 }

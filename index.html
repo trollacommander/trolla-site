@@ -3,25 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$TROLLA</title>
+  <title>$TROLLA - Meme Coin of the Galaxy</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header>
-    <h1>Welcome to $TROLLA</h1>
-    <p>The meme coin that’s leaving the galaxy.</p>
+  <header class="hero">
+    <h1>$TROLLA</h1>
+    <p>The meme coin that's leaving the galaxy</p>
   </header>
-  <section id="countdown">
-    <h2>Launch Countdown</h2>
+
+  <section class="countdown">
+    <h2>Countdown to Launch</h2>
     <div id="timer">Loading...</div>
   </section>
-  <section id="claim-ui">
-    <h2>Claim Your $TROLLA</h2>
+
+  <section class="tokenomics">
+    <h2>Tokenomics</h2>
+    <ul>
+      <li>Presale: 12%</li>
+      <li>Liquidity: 35%</li>
+      <li>Community: 53%</li>
+    </ul>
+  </section>
+
+  <section class="nft-gallery">
+    <h2>OG Trollonaut NFT Gallery</h2>
+    <div class="nfts">
+      <div class="nft">[Trollonaut #001]</div>
+      <div class="nft">[Trollonaut #002]</div>
+      <div class="nft">[Trollonaut #003]</div>
+    </div>
+  </section>
+
+  <section class="claim-ui">
+    <h2>Claim $TROLLA</h2>
     <p>Coming Soon...</p>
   </section>
+
   <footer>
-    <p>Follow us on Twitter and Telegram — @TROLLA</p>
+    <p>Follow us: @TROLLA on Twitter | Join the Telegram</p>
   </footer>
+
   <script>
     const launchDate = new Date("2025-07-24T00:00:00Z").getTime();
     const timerEl = document.getElementById("timer");
