@@ -9,33 +9,53 @@ body {
 .hero {
   background: url('banner-placeholder.png') no-repeat center center;
   background-size: cover;
-  padding: 5em 2em;
+  padding: 8em 2em;
+  position: relative;
+}
+.overlay {
+  background: rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  padding: 1em 2em;
+  border-radius: 10px;
 }
 h1 {
   font-size: 3em;
-  margin-bottom: 0.2em;
+  margin: 0;
+  text-shadow: 0 0 10px #00ffcc;
+}
+h2 {
+  text-shadow: 0 0 5px #00ffcc;
 }
 .countdown, .tokenomics, .nft-gallery, .claim-ui, footer {
   padding: 2em 1em;
 }
-.tokenomics ul {
-  list-style: none;
-  padding: 0;
-}
-.tokenomics li {
-  margin: 0.5em 0;
+.tokenomics-chart {
+  width: 200px;
+  margin-top: 1em;
 }
 .nfts {
   display: flex;
   justify-content: center;
   gap: 1em;
+  flex-wrap: wrap;
 }
 .nft {
+  width: 120px;
   border: 1px solid #00ffcc;
-  padding: 1em;
+  border-radius: 6px;
+  padding: 0.5em;
   background: rgba(0, 255, 204, 0.05);
+}
+.claim-box {
+  border: 2px dashed #00ffcc;
+  display: inline-block;
+  padding: 1em 2em;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  margin-top: 1em;
 }
 footer {
   background: #000;
   font-size: 0.9em;
+  padding: 1em;
 }
