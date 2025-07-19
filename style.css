@@ -6,8 +6,9 @@ body {
   color: #00ffcc;
   text-align: center;
 }
+a { color: #00ffcc; text-decoration: none; }
 .hero {
-  background: url('banner-placeholder.png') no-repeat center center;
+  background: url('banner.png') no-repeat center center;
   background-size: cover;
   padding: 8em 2em;
   position: relative;
@@ -40,7 +41,7 @@ h2 {
   flex-wrap: wrap;
 }
 .nft {
-  width: 120px;
+  width: 150px;
   border: 1px solid #00ffcc;
   border-radius: 6px;
   padding: 0.5em;
