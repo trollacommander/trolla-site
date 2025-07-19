@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>$TROLLA</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to $TROLLA</h1>
+    <p>The meme coin that’s leaving the galaxy.</p>
+  </header>
+  <section id="countdown">
+    <h2>Launch Countdown</h2>
+    <div id="timer">Loading...</div>
+  </section>
+  <section id="claim-ui">
+    <h2>Claim Your $TROLLA</h2>
+    <p>Coming Soon...</p>
+  </section>
+  <footer>
+    <p>Follow us on Twitter and Telegram — @TROLLA</p>
+  </footer>
+  <script>
+    const launchDate = new Date("2025-07-24T00:00:00Z").getTime();
+    const timerEl = document.getElementById("timer");
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = launchDate - now;
+      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const s = Math.floor((distance % (1000 * 60)) / 1000);
+      timerEl.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    }, 1000);
+  </script>
+</body>
+</html>
