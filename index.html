@@ -2,57 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>$TROLLA - Meme Coin of the Galaxy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$TROLLA Neon Landing</title>
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header class="hero">
-    <div class="overlay">
-      <h1>$TROLLA</h1>
-      <p>The meme coin that's leaving the galaxy</p>
-    </div>
-  </header>
+  <div class="container">
+    <h1 class="title glitch">HE'S COMING</h1>
+    <img src="./trolla_banner.png" alt="TROLLA Banner" class="banner" />
 
-  <section class="countdown">
-    <h2>Countdown to Launch</h2>
-    <div id="timer">Loading...</div>
-  </section>
+    <div class="countdown" id="countdown"></div>
 
-  <section class="tokenomics">
-    <h2>Tokenomics</h2>
-    <img src="tokenomics-chart.png" alt="Tokenomics Chart" class="tokenomics-chart"/>
-  </section>
+    <section class="tokenomics">
+      <h2>Tokenomics</h2>
+      <canvas id="tokenChart" width="300" height="300"></canvas>
+      <ul>
+        <li>Presale: 12%</li>
+        <li>Community & Liquidity: 70%</li>
+        <li>Reserves/Team/Marketing: 18%</li>
+      </ul>
+    </section>
 
-  <section class="nft-gallery">
-    <h2>OG Trollonaut NFT Gallery</h2>
-    <div class="nfts">
-      <img src="nft1.png" alt="OG Trollonaut #001" class="nft"/>
-    </div>
-  </section>
+    <section class="gallery">
+      <h2>OG Trollonaut NFTs</h2>
+      <div class="nfts">
+        <!-- Add your NFT preview images here -->
+        <img src="https://trollonaut.com/nfts/Trollonaut_001.png" alt="#Trollonaut1" /><img src="https://trollonaut.com/nfts/Trollonaut_002.png" alt="#Trollonaut2" /><img src="https://trollonaut.com/nfts/Trollonaut_003.png" alt="#Trollonaut3" /><img src="https://trollonaut.com/nfts/Trollonaut_004.png" alt="#Trollonaut4" /><img src="https://trollonaut.com/nfts/Trollonaut_005.png" alt="#Trollonaut5" /><img src="https://trollonaut.com/nfts/Trollonaut_006.png" alt="#Trollonaut6" /><img src="https://trollonaut.com/nfts/Trollonaut_007.png" alt="#Trollonaut7" /><img src="https://trollonaut.com/nfts/Trollonaut_008.png" alt="#Trollonaut8" /><img src="https://trollonaut.com/nfts/Trollonaut_009.png" alt="#Trollonaut9" /><img src="https://trollonaut.com/nfts/Trollonaut_010.png" alt="#Trollonaut10" />
+      </div>
+    </section>
 
-  <section class="claim-ui">
-    <h2>Claim $TROLLA</h2>
-    <div class="claim-box">Coming Soon...</div>
-  </section>
+    <footer class="socials">
+      <a href="https://twitter.com/TROLLANAUT" target="_blank">Twitter</a>
+      <a href="https://t.me/TROLLANAUT" target="_blank">Telegram</a>
+      <a href="mailto:contact@trollonaut.com">Contact</a>
+    </footer>
+  </div>
 
-  <footer>
-    <p>Follow us: <a href="https://twitter.com/trolla" target="_blank">@TROLLA</a> | <a href="https://t.me/trolla" target="_blank">Telegram</a></p>
-  </footer>
-
-  <script>
-    const launchDate = new Date("2025-07-24T00:00:00Z").getTime();
-    const timerEl = document.getElementById("timer");
-    setInterval(() => {
-      const now = new Date().getTime();
-      const distance = launchDate - now;
-      const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const s = Math.floor((distance % (1000 * 60)) / 1000);
-      timerEl.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-    }, 1000);
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -1,62 +1,56 @@
-
 body {
+  background: black;
+  color: #33ffcc;
+  font-family: monospace;
   margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: linear-gradient(to bottom, #000011, #0a0a1a);
-  color: #00ffcc;
+  padding: 0;
   text-align: center;
 }
-a { color: #00ffcc; text-decoration: none; }
-.hero {
-  background: url('banner.png') no-repeat center center;
-  background-size: cover;
-  padding: 8em 2em;
-  position: relative;
+.title {
+  font-size: 3rem;
+  margin-top: 2rem;
+  text-shadow: 0 0 8px #33ffcc, 0 0 16px #ff00ff;
 }
-.overlay {
-  background: rgba(0, 0, 0, 0.6);
-  display: inline-block;
-  padding: 1em 2em;
-  border-radius: 10px;
-}
-h1 {
-  font-size: 3em;
-  margin: 0;
-  text-shadow: 0 0 10px #00ffcc;
-}
-h2 {
-  text-shadow: 0 0 5px #00ffcc;
-}
-.countdown, .tokenomics, .nft-gallery, .claim-ui, footer {
-  padding: 2em 1em;
-}
-.tokenomics-chart {
-  width: 200px;
-  margin-top: 1em;
-}
-.nfts {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  flex-wrap: wrap;
-}
-.nft {
-  width: 150px;
-  border: 1px solid #00ffcc;
-  border-radius: 6px;
-  padding: 0.5em;
-  background: rgba(0, 255, 204, 0.05);
-}
-.claim-box {
-  border: 2px dashed #00ffcc;
-  display: inline-block;
-  padding: 1em 2em;
-  background: rgba(255, 255, 255, 0.05);
+.banner {
+  max-width: 600px;
+  width: 100%;
+  border: 4px solid #33ffcc;
   border-radius: 8px;
-  margin-top: 1em;
+  margin: 2rem auto;
 }
-footer {
-  background: #000;
-  font-size: 0.9em;
-  padding: 1em;
+.countdown {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.tokenomics {
+  padding: 2rem;
+}
+.gallery .nfts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  padding: 1rem;
+}
+.gallery .nfts img {
+  width: 120px;
+  border: 2px solid #ff00ff;
+  border-radius: 6px;
+  transition: transform 0.2s;
+}
+.gallery .nfts img:hover {
+  transform: scale(1.05);
+}
+footer.socials {
+  margin: 2rem 0;
+  font-size: 1rem;
+}
+footer.socials a {
+  margin: 0 1rem;
+  color: #33ffcc;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+footer.socials a:hover {
+  color: #ff00ff;
 }
