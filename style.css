@@ -1,28 +1,77 @@
-
+/* Base Styles */
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000;
-  color: #ffffff;
+  background-color: #000;
+  color: #39ff14;
   font-family: 'Orbitron', sans-serif;
   text-align: center;
 }
 
+.hero {
+  position: relative;
+}
+.hero-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Section Centers */
+.section-center {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* Story Image */
+.story-image {
+  width: 300px;
+  margin-top: 20px;
+  border: 2px solid #39ff14;
+  border-radius: 8px;
+}
+
+/* Gallery */
+.gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 40px;
+}
+.gallery img {
+  width: 200px;
+  border: 2px solid #39ff14;
+  border-radius: 4px;
+}
+
+/* Whitepaper Button */
 .whitepaper-button {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 28px;
   font-size: 18px;
-  color: #ffffff;
-  background-color: #8a0000;
-  border: 2px solid #ffffff;
+  color: #000;
+  background-color: #39ff14;
+  border: 2px solid #39ff14;
   border-radius: 8px;
   text-decoration: none;
-  box-shadow: 0 0 12px #ff0000;
   transition: all 0.3s ease-in-out;
 }
 .whitepaper-button:hover {
-  background-color: #000000;
-  color: #ff0000;
-  box-shadow: 0 0 20px #ff0000;
+  background-color: transparent;
+  color: #39ff14;
+  box-shadow: 0 0 10px #39ff14;
 }
