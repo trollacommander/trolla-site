@@ -1,61 +1,28 @@
+
 body {
-  background: #000;
-  font-family: 'Courier New', monospace;
-  color: #00ffcc;
-  text-align: center;
   margin: 0;
   padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
 }
-.hero-img {
-  width: 100%;
-  max-width: 400px;
-  margin-top: 2rem;
-}
-.title {
-  font-size: 3rem;
-  color: #00ffcc;
-  text-shadow: 0 0 8px #00ffcc, 0 0 12px #ff00ff;
-  margin: 1rem 0;
-}
-.countdown {
-  font-size: 2rem;
-  color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-}
-.tokenomics {
-  margin-top: 3rem;
-}
-.chart {
-  width: 300px;
-}
-.label-blue {
-  color: #00ffff;
-}
-.label-pink {
-  color: #ff00ff;
-}
-.gallery h2 {
-  margin: 3rem 0 1rem;
-}
-.nfts {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-.nfts img {
-  width: 120px;
-  border: 2px solid #ff00ff;
+
+.whitepaper-button {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 18px;
+  color: #ffffff;
+  background-color: #8a0000;
+  border: 2px solid #ffffff;
   border-radius: 8px;
-  box-shadow: 0 0 8px #00ffff;
-}
-.footer {
-  margin-top: 4rem;
-  font-size: 1.25rem;
-}
-.footer a {
-  margin: 0 0.5rem;
-  color: #00ffcc;
   text-decoration: none;
-  text-shadow: 0 0 8px #00ffff;
+  box-shadow: 0 0 12px #ff0000;
+  transition: all 0.3s ease-in-out;
+}
+.whitepaper-button:hover {
+  background-color: #000000;
+  color: #ff0000;
+  box-shadow: 0 0 20px #ff0000;
 }
