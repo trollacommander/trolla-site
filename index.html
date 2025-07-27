@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$TROLLA</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
+  <!-- Link your CSS -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Custom font -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Wordmark Header -->
   <header>
-    <img src="/assets/trollonaut-wordmark.png" alt="Trollonaut" id="wordmark-logo" />
+    <img src="assets/trollonaut-wordmark.png" alt="Trollonaut" id="wordmark-logo">
   </header>
 
-  <!-- Main Content -->
+  <!-- Main Hero -->
   <main>
-    <h1 style="font-size: 48px; text-shadow: 3px 3px 6px #ff0000;">$TROLLA</h1>
-    <h2 style="font-size: 24px; margin-top: 20px;">Launching on Solaxy Igniter...<br />Date Coming Soon</h2>
-    <a href="/whitepaper/whitepaper.html" class="whitepaper-button">📖 Read the Whitepaper</a>
+    <h1 class="hero-title">$TROLLA</h1>
+    <h2 class="hero-subtitle">Launching on Solaxy Igniter...<br>Date Coming Soon</h2>
+    <a href="whitepaper/whitepaper.html" class="whitepaper-button">📖 Read the Whitepaper</a>
   </main>
 
   <!-- Presale Widget -->
@@ -33,32 +35,34 @@
     </div>
   </section>
 
-  <!-- Scripts -->
+  <!-- Scripts for Solana + Wallet Adapter -->
   <script src="https://unpkg.com/@solana/web3.js@1.46.0/lib/index.iife.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-wallets@0.15.15/lib/iife/index.min.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-base@0.10.0/lib/iife/index.min.js"></script>
+
+  <!-- Presale Widget Logic -->
   <script>
     (async () => {
       const TOTAL = 8330400000;
-      let sold = 0;
-      const connectBtn = document.getElementById("connectBtn");
-      const walletInfo = document.getElementById("walletInfo");
-      const totalEl = document.getElementById("totalPresale");
-      const remainEl = document.getElementById("remainingPresale");
+      let sold = 0; // replace or fetch dynamically
+      // DOM elements
+      const connectBtn = document.getElementById('connectBtn');
+      const walletInfo = document.getElementById('walletInfo');
+      const totalEl = document.getElementById('totalPresale');
+      const remainEl = document.getElementById('remainingPresale');
+      // initialize stats
       totalEl.innerText = TOTAL.toLocaleString();
       remainEl.innerText = (TOTAL - sold).toLocaleString();
 
-      const { PhantomWalletAdapter } = window["walletAdapterWallets"];
-      const connection = new solanaWeb3.Connection(
-        "https://api.mainnet-beta.solana.com",
-        "confirmed"
-      );
+      // wallet adapter
+      const { PhantomWalletAdapter } = window['walletAdapterWallets'];
+      const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com', 'confirmed');
       const adapter = new PhantomWalletAdapter();
       await adapter.ready;
 
-      connectBtn.addEventListener("click", async () => {
+      connectBtn.addEventListener('click', async () => {
         connectBtn.disabled = true;
-        connectBtn.innerText = "Connecting…";
+        connectBtn.innerText = 'Connecting…';
         try {
           await adapter.connect();
           const pubkey = adapter.publicKey.toString();
@@ -67,13 +71,11 @@
           walletInfo.innerText += `\nSOL: ${bal / solanaWeb3.LAMPORTS_PER_SOL}`;
         } catch (err) {
           console.error(err);
-          walletInfo.innerText = "Connection failed. Open Phantom and try again.";
+          walletInfo.innerText = 'Connection failed. Open Phantom and try again.';
         } finally {
           connectBtn.disabled = false;
-          connectBtn.innerText = "Connect Phantom Wallet";
+          connectBtn.innerText = 'Connect Phantom Wallet';
         }
       });
     })();
   </script>
-</body>
-</html>
