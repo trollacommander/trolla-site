@@ -1,46 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>$TROLLA Homepage</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$TROLLA</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
+  <!-- Scanline overlay -->
+  <div id="scanline-overlay"></div>
 
-  <section id="launch" class="section-center">
-    <h1>$TROLLA</h1>
-    <h2>Launching on Solaxy Igniter...<br>Date Coming Soon</h2>
-    <br><br>
+  <!-- Wordmark Header -->
+  <header>
+    <img src="/assets/trollonaut-wordmark.png" alt="Trollonaut" id="wordmark-logo" />
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <h1 style="font-size: 48px; text-shadow: 3px 3px 6px #ff0000;">$TROLLA</h1>
+    <h2 style="font-size: 24px; margin-top: 20px;">Launching on Solaxy Igniter...<br />Date Coming Soon</h2>
     <a href="/whitepaper/whitepaper.html" class="whitepaper-button">📖 Read the Whitepaper</a>
-  </section>
+  </main>
 
-  <section id="story" class="section-center">
-    <h2>Trollonaut Origin Story</h2>
-    <p>In a cosmos of chaos and corruption, an innocent troll’s peaceful existence was shattered by the sadistic Dr. Vylex. This monstrous fiend abducted Trollonaut’s beloved family and condemned them to a ghastly fate: their essence gruesomely liquefied into an elixir of madness.</p>
-    <p>Driven by unfathomable fury, Trollonaut dons the corrupted helm of the stars, embarking on a journey through the abyss. He comes to sow the seeds of destruction, a harbinger of horror, chaos, and retribution.</p>
-  </section>
-
-  <section id="galleries" class="section-center">
-    <h2>OG Trollonaut NFT Gallery</h2>
-    <div class="gallery">
-      <img src="Trollonaut_001.png" alt="Trollonaut #001">
-      <img src="Trollonaut_002.png" alt="Trollonaut #002">
-      <img src="Trollonaut_003.png" alt="Trollonaut #003">
+  <!-- Presale Widget -->
+  <section id="trolla-widget">
+    <h3>🚀 $TROLLA Presale</h3>
+    <button id="connectBtn">Connect Phantom Wallet</button>
+    <div id="walletInfo"></div>
+    <div class="stat">
+      Total Presale Allocation: <span id="totalPresale">8,330,400,000</span> $TROLLA
     </div>
-
-    <h2>Villain Gallery</h2>
-    <div class="gallery">
-      <img src="/assets/Dr_Vylex_NFT_1.png" alt="Dr. Vylex">
-    </div>
-
-    <h2>Corrupted Gallery</h2>
-    <div class="gallery">
-      <img src="/assets/corrupted_001.png" alt="Corrupted #001">
+    <div class="stat">
+      Total Remaining: <span id="remainingPresale">8,330,400,000</span> $TROLLA
     </div>
   </section>
 
+  <!-- Scripts -->
+  <script src="https://unpkg.com/@solana/web3.js@1.46.0/lib/index.iife.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-wallets@0.15.15/lib/iife/index.min.js"></script>
+  <script src="https://unpkg.com/@solana/wallet-adapter-base@0.10.0/lib/iife/index.min.js"></script>
+  <script>
+    (async () => {
+      const TOTAL = 8330400000;
+      let sold = 0;
+      const connectBtn = document.getElementById("connectBtn");
+      const walletInfo = document.getElementById("walletInfo");
+      const totalEl = document.getElementById("totalPresale");
+      const remainEl = document.getElementById("remainingPresale");
+      totalEl.innerText = TOTAL.toLocaleString();
+      remainEl.innerText = (TOTAL - sold).toLocaleString();
+
+      const { PhantomWalletAdapter } = window["walletAdapterWallets"];
+      const connection = new solanaWeb3.Connection(
+        "https://api.mainnet-beta.solana.com",
+        "confirmed"
+      );
+      const adapter = new PhantomWalletAdapter();
+      await adapter.ready;
+
+      connectBtn.addEventListener("click", async () => {
+        connectBtn.disabled = true;
+        connectBtn.innerText = "Connecting…";
+        try {
+          await adapter.connect();
+          const pubkey = adapter.publicKey.toString();
+          walletInfo.innerText = `Connected: ${pubkey}`;
+          const bal = await connection.getBalance(adapter.publicKey);
+          walletInfo.innerText += `\nSOL: ${bal / solanaWeb3.LAMPORTS_PER_SOL}`;
+        } catch (err) {
+          console.error(err);
+          walletInfo.innerText = "Connection failed. Open Phantom and try again.";
+        } finally {
+          connectBtn.disabled = false;
+          connectBtn.innerText = "Connect Phantom Wallet";
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
-
