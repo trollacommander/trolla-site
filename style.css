@@ -10,26 +10,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Scanline overlay */
-#scanline-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  pointer-events: none;
-  z-index: 999;
-  background: repeating-linear-gradient(
-    rgba(0, 0, 0, 0.2) 0px,
-    rgba(0, 0, 0, 0.2) 1px,
-    rgba(0, 0, 0, 0.05) 2px,
-    rgba(0, 0, 0, 0.05) 3px
-  );
-  animation: scanline 0.8s linear infinite;
-}
-@keyframes scanline {
-  from { background-position: 0 0; }
-  to   { background-position: 0 100%; }
-}
-
 /* Wordmark logo */
 #wordmark-logo {
   display: block;
