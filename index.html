@@ -4,18 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$TROLLA</title>
-  <!-- Link your CSS -->
   <link rel="stylesheet" href="style.css">
-  <!-- Custom font -->
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Wordmark Header -->
-  <header>
-    <img src="assets/trollonaut-wordmark.png" alt="Trollonaut" id="wordmark-logo">
-  </header>
-
-  <!-- Main Hero -->
+  <!-- Main Hero (spaced down) -->
   <main>
     <h1 class="hero-title">$TROLLA</h1>
     <h2 class="hero-subtitle">Launching on Solaxy Igniter...<br>Date Coming Soon</h2>
@@ -35,26 +28,21 @@
     </div>
   </section>
 
-  <!-- Scripts for Solana + Wallet Adapter -->
+  <!-- Solana + Widget Logic -->
   <script src="https://unpkg.com/@solana/web3.js@1.46.0/lib/index.iife.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-wallets@0.15.15/lib/iife/index.min.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-base@0.10.0/lib/iife/index.min.js"></script>
-
-  <!-- Presale Widget Logic -->
   <script>
     (async () => {
       const TOTAL = 8330400000;
-      let sold = 0; // replace or fetch dynamically
-      // DOM elements
+      let sold = 0;
       const connectBtn = document.getElementById('connectBtn');
       const walletInfo = document.getElementById('walletInfo');
       const totalEl = document.getElementById('totalPresale');
       const remainEl = document.getElementById('remainingPresale');
-      // initialize stats
       totalEl.innerText = TOTAL.toLocaleString();
       remainEl.innerText = (TOTAL - sold).toLocaleString();
 
-      // wallet adapter
       const { PhantomWalletAdapter } = window['walletAdapterWallets'];
       const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com', 'confirmed');
       const adapter = new PhantomWalletAdapter();
@@ -69,8 +57,7 @@
           walletInfo.innerText = `Connected: ${pubkey}`;
           const bal = await connection.getBalance(adapter.publicKey);
           walletInfo.innerText += `\nSOL: ${bal / solanaWeb3.LAMPORTS_PER_SOL}`;
-        } catch (err) {
-          console.error(err);
+        } catch {
           walletInfo.innerText = 'Connection failed. Open Phantom and try again.';
         } finally {
           connectBtn.disabled = false;
@@ -79,3 +66,5 @@
       });
     })();
   </script>
+</body>
+</html>
