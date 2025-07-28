@@ -12,28 +12,29 @@ body {
 /* Hero & Widget Container */
 .hero-widget-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;    /* space around panes for central focus */
   align-items: flex-start;
-  padding-top: 30vh; /* adjust to push content down below logo */
+  padding-top: 30vh;               /* adjust to push content below logo */
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* Left pane: align to left */
+/* Left pane: narrow left column */
 .left-pane {
-  flex: 0 0 40%;
+  flex: 0 0 25%;                     /* occupies 25% width */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-left: 2rem;
+  margin-left: 5%;                  /* pad away from edge */
 }
 
-/* Right pane: align to right */
+/* Right pane: narrow right column */
 .right-pane {
-  flex: 0 0 50%;
+  flex: 0 0 25%;                     /* occupies 25% width */
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 2rem;
+  margin-right: 5%;                 /* pad away from edge */
 }
 
 /* Hero title & subtitle */
