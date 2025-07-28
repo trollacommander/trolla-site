@@ -1,37 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>$TROLLA</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet" />
 </head>
 <body>
-  <!-- Main Hero (spaced down) -->
-  <main>
-    <h1 class="hero-title">$TROLLA</h1>
-    <h2 class="hero-subtitle">Launching on Solaxy Igniter...<br>Date Coming Soon</h2>
-    <a href="whitepaper/whitepaper.html" class="whitepaper-button">📖 Read the Whitepaper</a>
-  </main>
+  <!-- Two-column hero & widget layout -->
+  <div class="hero-widget-container">
 
-  <!-- Presale Widget -->
-  <section id="trolla-widget">
-    <h3>🚀 $TROLLA Presale</h3>
-    <button id="connectBtn">Connect Phantom Wallet</button>
-    <div id="walletInfo"></div>
-    <div class="stat">
-      Total Presale Allocation: <span id="totalPresale">8,330,400,000</span> $TROLLA
+    <!-- Left pane: Whitepaper button + Presale widget -->
+    <div class="left-pane">
+      <a href="whitepaper/whitepaper.html" class="whitepaper-button">
+        📖 Read the Whitepaper
+      </a>
+      <section id="trolla-widget">
+        <h3>🚀 $TROLLA Presale</h3>
+        <button id="connectBtn">Connect Phantom Wallet</button>
+        <div id="walletInfo"></div>
+        <div class="stat">
+          Total Presale Allocation: <span id="totalPresale">8,330,400,000</span> $TROLLA
+        </div>
+        <div class="stat">
+          Total Remaining: <span id="remainingPresale">8,330,400,000</span> $TROLLA
+        </div>
+      </section>
     </div>
-    <div class="stat">
-      Total Remaining: <span id="remainingPresale">8,330,400,000</span> $TROLLA
-    </div>
-  </section>
 
-  <!-- Solana + Widget Logic -->
+    <!-- Right pane: Hero title + subtitle -->
+    <div class="right-pane">
+      <h1 class="hero-title">$TROLLA</h1>
+      <h2 class="hero-subtitle">
+        Launching on Solaxy Igniter...<br />
+        Date Coming Soon
+      </h2>
+    </div>
+
+  </div>
+
+  <!-- Solana + Wallet Adapter Scripts -->
   <script src="https://unpkg.com/@solana/web3.js@1.46.0/lib/index.iife.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-wallets@0.15.15/lib/iife/index.min.js"></script>
   <script src="https://unpkg.com/@solana/wallet-adapter-base@0.10.0/lib/iife/index.min.js"></script>
+
+  <!-- Presale Widget Logic -->
   <script>
     (async () => {
       const TOTAL = 8330400000;
@@ -44,7 +58,10 @@
       remainEl.innerText = (TOTAL - sold).toLocaleString();
 
       const { PhantomWalletAdapter } = window['walletAdapterWallets'];
-      const connection = new solanaWeb3.Connection('https://api.mainnet-beta.solana.com', 'confirmed');
+      const connection = new solanaWeb3.Connection(
+        'https://api.mainnet-beta.solana.com',
+        'confirmed'
+      );
       const adapter = new PhantomWalletAdapter();
       await adapter.ready;
 
@@ -57,7 +74,8 @@
           walletInfo.innerText = `Connected: ${pubkey}`;
           const bal = await connection.getBalance(adapter.publicKey);
           walletInfo.innerText += `\nSOL: ${bal / solanaWeb3.LAMPORTS_PER_SOL}`;
-        } catch {
+        } catch (err) {
+          console.error(err);
           walletInfo.innerText = 'Connection failed. Open Phantom and try again.';
         } finally {
           connectBtn.disabled = false;
