@@ -1,7 +1,7 @@
-/* Body & Background */
+/* Body Background */
 body {
   margin: 0;
-  padding: 40px;
+  padding: 0;
   background: url('assets/assets/eldritch-void-bg.png') no-repeat center center / cover;
   color: #0f0;
   font-family: 'Orbitron', sans-serif;
@@ -9,43 +9,36 @@ body {
   overflow-x: hidden;
 }
 
-/* Hero Styles */
+/* Hero Styles with vertical spacing */
+main {
+  padding-top: 20vh; /* push content below background wordmark */
+}
 .hero-title {
   font-size: 4rem;
   text-shadow: 3px 3px 6px #ff0000;
-  margin: 0;
+  margin: 0 auto 1rem;
 }
 .hero-subtitle {
   font-size: 1.5rem;
-  margin: 1rem 0 2rem;
-}
-
-/* Wordmark Logo */
-#wordmark-logo {
-  display: block;
-  margin: 0 auto 2rem;
-  max-width: 70%;
-  height: auto;
+  margin: 0 0 2rem;
 }
 
 /* Whitepaper Button */
 .whitepaper-button {
   display: inline-block;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   padding: 1rem 2rem;
   font-size: 1.125rem;
   color: #fff;
   background-color: #8a0000;
   border: 2px solid #fff;
   border-radius: 8px;
+  animation: glow 1.5s infinite alternate;
   text-decoration: none;
-  box-shadow: 0 0 12px #ff0000;
-  transition: all 0.3s ease;
 }
-.whitepaper-button:hover {
-  background-color: #000;
-  color: #f00;
-  box-shadow: 0 0 20px #f00;
+@keyframes glow {
+  from { box-shadow: 0 0 8px #ff0000; }
+  to   { box-shadow: 0 0 20px #ff0000; }
 }
 
 /* Presale Widget */
@@ -53,7 +46,7 @@ body {
   max-width: 360px;
   margin: 0 auto 4rem;
   padding: 1.5rem;
-  background: rgba(0, 0, 0, 0.75);
+  background: rgba(0,0,0,0.75);
   border: 2px solid #444;
   border-radius: 0.5rem;
 }
